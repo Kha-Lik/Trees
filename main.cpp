@@ -10,22 +10,17 @@ int main() {
 	Tree avl(new AVLTree);
 	Tree bTree(new BTree(3));
 
-	clock_t tStart, tEnd, time;
-	int count = 20000;
-
-	for (int i = 0; i < count; i++) {
-		bTree.insert(rand() % 2000000 - 1000000);
+	for (int i = 0; i < 15; i++){
+		bst.insert(rand() % 201 - 100);
+		avl.insert(rand() % 201 - 100);
+		bTree.insert(rand() % 201 - 100);
 	}
 
-	tStart = clock();
-
-	for (int i = 0; i < count; i++) {
-		bTree.remove(rand() % 2000000 - 1000000);
-	}
-	tEnd = clock();
-	time = tEnd - tStart;
-
-	cout << time << " ms" << endl;
+	bst.display();
+	cout << endl;
+	avl.display();
+	cout << endl;
+	bTree.display();
 
 	return 0;
 }
