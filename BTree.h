@@ -8,41 +8,23 @@
 #include "BTreeNode.h"
 #include "ITree.h"
 
-class BTree : public ITree
-{
-	BTreeNode *root; // Pointer to root node
-	int t; // Minimum degree
-	// function to search a key in this tree
-	BTreeNode* _search(int k)
-	{
-		return (root == nullptr)? nullptr : root->search(k);
-	}
+class BTree : public ITree {
+	BTreeNode *root;
+	int t;
+
+	BTreeNode *_search(int k);
  public:
 
-	// Constructor (Initializes tree as empty)
-	BTree(int _t)
-	{
-		root = nullptr;
-		t = _t;
-	}
+	explicit BTree(int _t);
 
-	void display() override
-	{
-		if (root != nullptr) root->traverse();
-	}
+	void display() override;
 
-	bool search (int k) override{
-		return _search(k) != nullptr;
-	}
+	bool search(int k) override;
 
-
-	// The main function that inserts a new key in this B-Tree
 	void insert(int k);
 
-	// The main function that removes a new key in thie B-Tree
 	void remove(int k);
 
 };
-
 
 #endif //B_TREE__BTREE_H_

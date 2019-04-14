@@ -270,7 +270,7 @@ void AVLTree::setRoot(Node *n) {
 }
 
 bool AVLTree::search(int val) {
-	return findNode(val)!= nullptr;
+	return findNode(val) != nullptr;
 }
 
 int AVLTree::spacing(int level) {
