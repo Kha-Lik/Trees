@@ -1,26 +1,26 @@
 #include <iostream>
-#include "Tree.h"
 #include "ctime"
+#include "HashMap.cpp"
 
 using namespace std;
 
 int main() {
-
-	Tree bst(new BinnaryTree);
-	Tree avl(new AVLTree);
-	Tree bTree(new BTree(3));
-
-	for (int i = 0; i < 15; i++){
-		bst.insert(rand() % 201 - 100);
-		avl.insert(rand() % 201 - 100);
-		bTree.insert(rand() % 201 - 100);
+	int size = 25000;
+	string key = "Key";
+	time_t tStart, tEnd;
+	HashMap hMap(size);
+	for (int i = 0; i < size; i++){
+		hMap.put(key + to_string(i), rand()%100, i%2);
 	}
 
-	bst.display();
-	cout << endl;
-	avl.display();
-	cout << endl;
-	bTree.display();
+	tStart = clock();
+	for (int i = 0; i < size; i++){
+		hMap.remove(key + to_string(i));
+	}
+	tEnd = clock();
 
+
+	cout << tEnd - tStart << "ms\n";
 	return 0;
 }
+
